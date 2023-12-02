@@ -12,10 +12,16 @@ namespace ChangeControl.Models;
 [TypeConverter(typeof(EnumDescriptionTypeConverter))]
 public enum ChangeComponentEnum
 {
-    [Description("ほげ")]
-    hoge,
-    [Description("ふが")]
-    fuga,
+    [Description("製造方法")]
+    Method,
+    [Description("人")]
+    Man,
+    [Description("機械")]
+    Machine,
+    [Description("材料")]
+    Material,
+    [Description("測定/検査")]
+    Measurement,
 }
 
 public class EnumForCheckBox<T> where T : Enum
