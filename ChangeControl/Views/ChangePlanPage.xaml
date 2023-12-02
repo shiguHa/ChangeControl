@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="ChangeControl.Views.ChangePlanPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:extension="using:ChangeControl.Extensions"
+    xmlns:controls="using:ChangeControl.Controls" xmlns:models="using:ChangeControl.Models"
+    xmlns:local="using:ChangeControl"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300px" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="変更理由"/>
+            <TextBox AutomationProperties.Name="multi-line TextBox"
+                TextWrapping="Wrap" AcceptsReturn="True" IsSpellCheckEnabled="True"
+                MinWidth="400" 
+                Text="{x:Bind ViewModel.TestText}" />
+        </StackPanel>
+
+
+        <ItemsControl ItemsSource="{x:Bind ViewModel.EnumCollection}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Description}" IsChecked="{Binding IsSelected}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+
+    </Grid>
+</Page>

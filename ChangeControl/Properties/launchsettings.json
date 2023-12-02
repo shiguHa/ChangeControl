@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "ChangeControl (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "ChangeControl (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
