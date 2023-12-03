@@ -7,6 +7,7 @@
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:local="using:ChangeControl" xmlns:vm="using:ChangeControl.ViewModels"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core" xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:myBehaviors="using:ChangeControl.Behaviors"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
@@ -16,6 +17,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100px" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
@@ -47,16 +49,23 @@
                 >
             <TreeView.ItemTemplate>
                 <DataTemplate x:DataType="vm:TreeViewItemSource">
-                    <TreeViewItem ItemsSource="{x:Bind Children}" 
-                                  Content="{x:Bind Name}" />
+                    <TreeViewItem ItemsSource="{x:Bind Children, Mode=TwoWay}" 
+                                  Content="{x:Bind Name}" 
+                                  IsExpanded="True"
+                                  IsSelected="{x:Bind IsSelected, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                  />
                 </DataTemplate>
             </TreeView.ItemTemplate>
 
             <Interactivity:Interaction.Behaviors>
+                <myBehaviors:TreeViewSelectedItemsProxyBehavior
+                    x:Name="ProxyBehavior"
+                    SelectedItemsProxy="{x:Bind ViewModel.SelectedItems, Mode=TwoWay}"
+                    />
                 <Interactions:EventTriggerBehavior EventName="SelectionChanged">
-                    <!--<Interactions:CallMethodAction MethodName="OnTreeViewSelectionChanged" TargetObject="{Binding}"/>-->
                     <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.TreeViewSelectionChangedCommand}" />
                 </Interactions:EventTriggerBehavior>
+
             </Interactivity:Interaction.Behaviors>
         </TreeView>
 
@@ -65,11 +74,13 @@
                 >
             <TreeView.ItemTemplate>
                 <DataTemplate x:DataType="vm:TreeViewItemSource">
-                    <TreeViewItem ItemsSource="{x:Bind Children}" 
-                                  Content="{x:Bind Name}" />
+                    <TreeViewItem ItemsSource="{x:Bind Children}" >
+                                  <CheckBox Content="{x:Bind Name}" IsChecked="{x:Bind IsSelected, Mode=OneWay}"/>
+                    </TreeViewItem>
                 </DataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
 
+        <Button Grid.Column="2" Grid.Row="1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click"/>
     </Grid>
 </Page>
