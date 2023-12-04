@@ -66,9 +66,12 @@ public partial class App : Application
             services.AddSingleton<INavigationService, NavigationService>();
 
             // Core Services
+            services.AddSingleton<ISampleDataService, SampleDataService>();
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddTransient<ChangeBySupplierViewModel>();
+            services.AddTransient<ChangeBySupplierPage>();
             services.AddTransient<ChangePlanViewModel>();
             services.AddTransient<ChangePlanPage>();
             services.AddTransient<SettingsViewModel>();
