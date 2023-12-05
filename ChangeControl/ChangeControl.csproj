@@ -15,6 +15,7 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Controls\AttachedFileControl.xaml" />
     <None Remove="Controls\MyRichEditBox.xaml" />
   </ItemGroup>
 
@@ -39,6 +40,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Controls\AttachedFileControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Controls\MyRichEditBox.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,6 +18,7 @@ public class PageService : IPageService
         Configure<SettingsViewModel, SettingsPage>();
         Configure<ChangePlanViewModel, ChangePlanPage>();
         Configure<ChangeBySupplierViewModel, ChangeBySupplierPage>();
+        Configure<ChangeEvaluateViewModel, ChangeEvaluatePage>();
     }
 
     public Type GetPageType(string key)

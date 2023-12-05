@@ -103,4 +103,7 @@
   <data name="Shell_ChangeBySupplier.Content" xml:space="preserve">
     <value>ChangeBySupplier</value>
   </data>
+  <data name="Shell_ChangeEvaluate.Content" xml:space="preserve">
+    <value>ChangeEvaluate</value>
+  </data>
 </root>

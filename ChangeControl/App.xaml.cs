@@ -70,6 +70,8 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddTransient<ChangeEvaluateViewModel>();
+            services.AddTransient<ChangeEvaluatePage>();
             services.AddTransient<ChangeBySupplierViewModel>();
             services.AddTransient<ChangeBySupplierPage>();
             services.AddTransient<ChangePlanViewModel>();
@@ -87,6 +89,30 @@ public partial class App : Application
         Build();
 
         UnhandledException += App_UnhandledException;
+
+       // List<Product> products = new List<Product>()
+       //{
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-10" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-100" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-101" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-1" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-20" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-20-1" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-20-50" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-20-10" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-10" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X1111-20-10-1" },
+       //    new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X2121" },
+       //     new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X2121-211-123" },
+       //     new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X2121-211-124" },
+       //      new Product() { Category = "Food", ExpenseCode = "123", ProductTypeName = "X2121-211-125" },
+       //    // more items...
+       //};
+
+
+
+       // var data = BuildTreeViewHelper.BuildTreeView(products);
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
