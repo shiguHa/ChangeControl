@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using ChangeControl.Models;
+using ChangeControl.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Text;
@@ -70,6 +71,16 @@ public partial class ChangePlanViewModel : ObservableRecipient
         _timer.Start();
         #endregion
     }
+
+    [RelayCommand]
+    private void NewWindow()
+    {
+        var newWindow = new Window();
+        var page = App.GetService<ChangeEvaluatePage>();
+        newWindow.Content = page;
+        newWindow.Activate();
+    }
+
 
 
     #region TreeViewSelectionChangedCommand

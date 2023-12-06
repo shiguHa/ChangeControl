@@ -27,6 +27,7 @@
                 TextWrapping="Wrap" AcceptsReturn="True" IsSpellCheckEnabled="True"
                 MinWidth="400" 
                 Text="{x:Bind ViewModel.TestText}" />
+            <Button Content="NewWindow" Command="{x:Bind ViewModel.NewWindowCommand}" />
         </StackPanel>
 
  
