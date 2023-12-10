@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using ChangeControl.Models;
+using ChangeControl.Services;
 using ChangeControl.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -76,9 +77,11 @@ public partial class ChangePlanViewModel : ObservableRecipient
     private void NewWindow()
     {
         var newWindow = new Window();
-        var page = App.GetService<ChangeEvaluatePage>();
+        var page = App.GetService<ShellPage>();
         newWindow.Content = page;
         newWindow.Activate();
+
+
     }
 
 

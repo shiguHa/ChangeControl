@@ -15,8 +15,10 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Controls\ApprovalControl.xaml" />
     <None Remove="Controls\AttachedFileControl.xaml" />
     <None Remove="Controls\MyRichEditBox.xaml" />
+    <None Remove="Views\LeanSubWindowEx.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +42,12 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\LeanSubWindowEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Controls\ApprovalControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Controls\AttachedFileControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

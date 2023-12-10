@@ -28,7 +28,7 @@ namespace ChangeControl.Services
             // ChangeEvaluateViewModelのReturnDataイベントにハンドラを登録
             if (page.DataContext is ChangeEvaluateViewModel changeEvaluateViewModel)
             {
-                changeEvaluateViewModel.ReturnData += returnDataHandler;
+                //changeEvaluateViewModel.ReturnData += returnDataHandler;
             }
         }
     }
