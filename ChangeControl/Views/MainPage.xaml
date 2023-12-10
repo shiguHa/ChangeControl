@@ -4,19 +4,50 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:ChangeControl.Controls"
-    mc:Ignorable="d">
+    xmlns:toolkit="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:toolkitExtensions="using:CommunityToolkit.WinUI.UI.Controls.Extensions"
+    xmlns:models="using:ChangeControl.Models"
+    xmlns:ext="using:CommunityToolkit.WinUI"
+    mc:Ignorable="d"
+    x:Name="ThisPage"
+    Tag="PageBindTest"
+    
+    >
 
-    <Grid x:Name="ContentArea">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <StackPanel>
-            <TextBlock Text="部門" />
-            <TextBlock Text="○○部門" />
-        </StackPanel>
-        
+
+    <Grid x:Name="ContentArea"  Tag="Gridだよん" ext:FrameworkElementExtensions.AncestorType="Page">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button  Grid.Row="0"
+                   Content="{Binding (ext:FrameworkElementExtensions.Ancestor).Tag, ElementName=ContentArea, Mode=TwoWay}" 
+                    />
+
+        <toolkit:DataGrid x:Name="DataGrid" 
+                          ItemsSource="{x:Bind ViewModel.Approvals}"
+                          AutoGenerateColumns="False"
+                          Tag="BindTest"
+                          Grid.Row="1">
+            <toolkit:DataGrid.Columns>
+                <toolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+
+                <toolkit:DataGridTemplateColumn Header="Approved">
+                    <toolkit:DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Content="Approve" 
+                                    Click="Button_Click"
+                                    DataContext="{Binding}"
+                                     />
+
+                        </DataTemplate>
+                    </toolkit:DataGridTemplateColumn.CellTemplate>
+                </toolkit:DataGridTemplateColumn>
+            </toolkit:DataGrid.Columns>
+        </toolkit:DataGrid>
+
+
+
     </Grid>
 </Page>
