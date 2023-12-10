@@ -70,6 +70,8 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddTransient<NodifyViewModel>();
+            services.AddTransient<NodifyPage>();
             services.AddTransient<ChangeEvaluateViewModel>();
             services.AddTransient<ChangeEvaluatePage>();
             services.AddTransient<ChangeBySupplierViewModel>();

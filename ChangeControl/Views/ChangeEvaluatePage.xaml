@@ -5,9 +5,36 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ChangeControl.Controls"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.UI.Controls"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="RadioButtons" x:Key="judment">
+            <Setter Property="Width" Value="100" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="comment">
+            <Setter Property="Width" Value="300" />
+        </Style>
+    </Page.Resources>
+
     <Grid x:Name="ContentArea">
-      <controls:AttachedFileControl />
+
+        <StackPanel BorderThickness="2" >
+            
+            <toolkit:HeaderedContentControl Grid.Column="0" Header="外観" >
+                <StackPanel Orientation="Horizontal">
+
+                    <RadioButtons Grid.Column="1" Style="{StaticResource judment}">
+                        <RadioButton Grid.Column="1" Content="良" />
+                        <RadioButton Grid.Column="2" Content="可" />
+                    </RadioButtons>
+
+                    <TextBox Grid.Column="3" PlaceholderText="備考" Style="{StaticResource comment}"/>
+                </StackPanel>
+
+            </toolkit:HeaderedContentControl>
+
+
+        </StackPanel>
     </Grid>
 </Page>

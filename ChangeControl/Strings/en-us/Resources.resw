@@ -106,4 +106,7 @@
   <data name="Shell_ChangeEvaluate.Content" xml:space="preserve">
     <value>ChangeEvaluate</value>
   </data>
+  <data name="Shell_Nodify.Content" xml:space="preserve">
+    <value>Nodify</value>
+  </data>
 </root>
